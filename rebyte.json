@@ -1,0 +1,28 @@
+{
+  "name": "my_action_extension",
+    "displayName": "Action Extension",
+  "description": "An example action extension that generates images from a prompt.",
+  "version": "0.0.1",
+  "main": "./src/main.ts",
+  "out": "./dist/main.js",
+  "inputArgs": [
+    {
+      "name": "arg1",
+      "type": "string",
+      "description": "",
+      "required": true
+    },
+    {
+      "name": "arg2",
+      "type": "number",
+      "description": "",
+      "required": true
+    },
+    {
+      "name": "arg3",
+      "type": "string",
+      "description": "",
+      "required": true
+    }
+  ]
+}
