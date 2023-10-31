@@ -1,5 +1,7 @@
 export type ActionArgs = {
-  arg1: string;
-  arg2: number;
-  arg3: string;
+  notion_api_key: string;
+  parent: any;
+  cover?: any;
+  icon?: any;
+  properties?: any;
 };

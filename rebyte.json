@@ -1,28 +1,40 @@
 {
-  "name": "my_action_extension",
-    "displayName": "Action Extension",
-  "description": "An example action extension that generates images from a prompt.",
+  "name": "create_notion_page_ext",
+  "displayName": "Create Notion Page",
+  "description": "Create notion page by notion API",
   "version": "0.0.1",
   "main": "./src/main.ts",
   "out": "./dist/main.js",
   "inputArgs": [
     {
-      "name": "arg1",
-      "type": "string",
-      "description": "",
+      "name": "notion_api_key",
+      "type": "credential",
+      "description": "notion api key (required)",
       "required": true
     },
     {
-      "name": "arg2",
-      "type": "number",
-      "description": "",
+      "name": "parent",
+      "type": "object",
+      "description": "parent page_id or database_id (required)",
       "required": true
     },
     {
-      "name": "arg3",
-      "type": "string",
-      "description": "",
-      "required": true
+      "name": "cover",
+      "type": "object",
+      "description": "page cover image (optional)",
+      "required": false
+    },
+    {
+      "name": "icon",
+      "type": "object",
+      "description": "page icon (optional)",
+      "required": false
+    },
+    {
+      "name": "properties",
+      "type": "object",
+      "description": "page properties (optional)",
+      "required": false
     }
   ]
 }
