@@ -1,8 +1,8 @@
 {
   "name": "create_notion_page_ext",
   "displayName": "Create Notion Page",
-  "description": "Create notion page by notion API",
-  "version": "0.0.1",
+  "description": "Create notion page by notion API. https://developers.notion.com/reference/post-page",
+  "version": "0.0.2",
   "main": "./src/main.ts",
   "out": "./dist/main.js",
   "inputArgs": [
@@ -14,26 +14,32 @@
     },
     {
       "name": "parent",
-      "type": "object",
-      "description": "parent page_id or database_id (required)",
+      "type": "string",
+      "description": "The parent page or database where the new page is inserted, represented as a JSON object with a page_id or database_id key, and the corresponding ID.(required)",
       "required": true
     },
     {
-      "name": "cover",
-      "type": "object",
-      "description": "page cover image (optional)",
+      "name": "properties",
+      "type": "string",
+      "description": "The values of the page’s properties. If the parent is a database, then the schema must match the parent database’s properties. If the parent is a page, then the only valid object key is title.(required)",
+      "required": true
+    },
+    {
+      "name": "children",
+      "type": "string",
+      "description": "The content to be rendered on the new page, represented as an array of block objects.(optional)",
       "required": false
     },
     {
       "name": "icon",
-      "type": "object",
-      "description": "page icon (optional)",
+      "type": "string",
+      "description": "The icon of the new page. Either an emoji object or an external file object.(optional)",
       "required": false
     },
     {
-      "name": "properties",
-      "type": "object",
-      "description": "page properties (optional)",
+      "name": "cover",
+      "type": "string",
+      "description": "The cover image of the new page, represented as a file object.(optional)",
       "required": false
     }
   ]
