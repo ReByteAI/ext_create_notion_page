@@ -8,7 +8,6 @@ export async function rebyte_main({ context, args }: {
   console.log("rebyte main args", args)
   console.log("rebyte main context", context)
 
-
   try {
     if (!args.notion_api_key) {
       throw new Error("notion_api_key is required")
@@ -25,9 +24,9 @@ export async function rebyte_main({ context, args }: {
     const pageObj = {
       parent: JSON.parse(args.parent),
       properties: JSON.parse(args.properties),
-      children: args.children ? JSON.parse(args.children) : undefined,
-      icon: args.icon ? JSON.parse(args.icon) : undefined,
-      cover: args.cover ? JSON.parse(args.cover) : undefined,
+      children: isJsonString(args.children) ? JSON.parse(args.children) : undefined,
+      icon: isJsonString(args.icon) ? JSON.parse(args.icon) : undefined,
+      cover: isJsonString(args.cover) ? JSON.parse(args.cover) : undefined,
     }
     console.log("create notion page, pageObj:", pageObj)
     const response = await notion.pages.create(pageObj)
@@ -47,6 +46,15 @@ export async function rebyte_main({ context, args }: {
     console.error("create notion page error:", e?.message)
     console.error(e)
     return { args }
+  }
+}
+
+function isJsonString(str: any): boolean {
+  try {
+    const obj = JSON.parse(str)
+    return !!obj && typeof obj === "object"
+  } catch (e) {
+    return false
   }
 }
 

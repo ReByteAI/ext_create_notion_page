@@ -2,7 +2,7 @@
   "name": "create_notion_page_ext",
   "displayName": "Create Notion Page",
   "description": "Create notion page by notion API. https://developers.notion.com/reference/post-page",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./src/main.ts",
   "out": "./dist/main.js",
   "inputArgs": [
